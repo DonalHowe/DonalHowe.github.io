@@ -4,6 +4,7 @@ var buttonD = document.getElementById("dButton")
 var npcsprite = new Image();
 npcsprite.src = "./img/1to6.png"; // Frames 1 to 6
 var gameOverBackground=new Image();
+var killedPlayer =false;
 gameOverBackground.src="./img/gameOver.jpg";
 var background=new Image();
 background.src="./img/background.jpg";
@@ -30,7 +31,10 @@ var sceneState=0;
 
 
 // Gameobjects is a collection of the Actors within the game
-var gameobjects = [player, new GameObject("NPC",npcsprite, 100,700,700)];
+
+  var gameobjects = [player, new GameObject("NPC",npcsprite, 100,700,700)];
+
+
 
 // Process keyboard input event
 function input(event) {
@@ -170,9 +174,14 @@ function animate() {
   } 
 
   //always draw the background
-  if(sceneState==0)
+  
+    
+    
+   if(killedPlayer===false)
   {
-    context.drawImage(background,0,0,400,400,0,0,890,500);
+      context.drawImage(background,0,0,400,400,0,0,890,500);
+      context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
+      context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
   }
   else
   {
@@ -197,19 +206,19 @@ function collsions(){
   var collisionX = gameobjects[1].x - gameobjects[0].x;
   var collisionY = gameobjects[1].y - gameobjects[0].y;
 
- if(collisionX < 60 && collisionY <100)
+ if(collisionX < 30 && collisionY <10)
    {
 
    // gameobjects[1].health = gameobjects[1].health - 1;
    sceneState=1;
+   killedPlayer=true;
     console.log("ouch");
     
   console.log("collided");
   }
   else{
    
-    context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
-    context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
+    
     sceneState=0;
   }
 
