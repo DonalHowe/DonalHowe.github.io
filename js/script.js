@@ -3,8 +3,10 @@ var context = canvas.getContext('2d');
 var buttonD = document.getElementById("dButton")
 var npcsprite = new Image();
 npcsprite.src = "./img/1to6.png"; // Frames 1 to 6
+var gameOverBackground=new Image();
+gameOverBackground.src="./img/gameOver.jpg";
 var background=new Image();
-background.src="./img/Background.jpg";
+background.src="./img/background.jpg";
 var sprite = new Image();
 sprite.src = "./img/lab6sprite.png"; // Frames 1 to 6
 function GameObject(name, img, health,Scale) {
@@ -24,7 +26,7 @@ var gamerInput = new GamerInput("None"); //No Input
 let daySwicth=0;
 // Default Player
 var player = new GameObject("player",sprite,100);
-
+var sceneState=0;
 
 
 // Gameobjects is a collection of the Actors within the game
@@ -137,6 +139,7 @@ function update() {
     gameobjects[1].y -=1;
   }
 
+  moveThroughWalls();
 }
 
 
@@ -167,7 +170,15 @@ function animate() {
   } 
 
   //always draw the background
-  context.drawImage(background,0,0,400,400,0,0,890,500);
+  if(sceneState==0)
+  {
+    context.drawImage(background,0,0,400,400,0,0,890,500);
+  }
+  else
+  {
+    context.drawImage(gameOverBackground,0,0,400,400,0,0,1080,1000);
+  }
+ 
  
 
 //context.drawImage(gameobjects[0].img, (gameobjects[0].img.width / frames) * currentFrame, 0, 90, 90, 300, 300, 290, 290);
@@ -190,7 +201,8 @@ function collsions(){
    {
 
    // gameobjects[1].health = gameobjects[1].health - 1;
-    console.log("GameEnded");
+   sceneState=1;
+    console.log("ouch");
     
   console.log("collided");
   }
@@ -198,7 +210,7 @@ function collsions(){
    
     context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
     context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
-
+    sceneState=0;
   }
 
 
@@ -261,12 +273,33 @@ for (var i = 0; i < options.length; i++) {
   var option = options[i];
   selectBox.options.add(new Option(option.text, option.value, option.selected));
 }
+function moveThroughWalls(){ 
+  if(gameobjects[0].x>=800)
+  {
+    gameobjects[0].x=0
+  }
+  else if(gameobjects[0].x<=0)
+  {
+    gameobjects[0].x<=800
+  }
+  if(gameobjects[0].y>=400)
+  {
+    gameobjects[0].x=0
+  }
+  else if(gameobjects[0].x<=0)
+  {
+    gameobjects[0].y<=400
+  }
+
+}
 
 function gameloop() {
   update();
   drawHealthbar();
+
   animate();
   collsions();
+ 
   window.requestAnimationFrame(gameloop);
 
 
