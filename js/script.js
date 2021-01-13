@@ -189,7 +189,6 @@ function collsions(){
  if(collisionX < 60 && collisionY <100)
    {
 
-   
    // gameobjects[1].health = gameobjects[1].health - 1;
     console.log("GameEnded");
     
