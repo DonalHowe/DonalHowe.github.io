@@ -166,18 +166,9 @@ function animate() {
       initial = current; // reset initial
   } 
 
-  // Draw sprite frame
-  
-  if(daySwicth==0)
-  {
-    context.drawImage(background,0,0,400,400,0,0,890,500);
-    context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
-    context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
-  }
-  else
-  {
-    console.log("game eneded");
-  }
+  //always draw the background
+  context.drawImage(background,0,0,400,400,0,0,890,500);
+ 
 
 //context.drawImage(gameobjects[0].img, (gameobjects[0].img.width / frames) * currentFrame, 0, 90, 90, 300, 300, 290, 290);
   if(gameobjects[0].x == gameobjects[1].x && gameobjects[0].y == gameobjects[1].y)
@@ -192,17 +183,25 @@ function buttonOnClick() {
   console.log("Button Pressed");
 }
 function collsions(){
-  if(gameobjects[0].x=gameobjects[0].x)
-  {
-     daySwicth=1;
-  }
-  else if(gameobjects[0].y=gameobjects[0].y)
-  {
-    daySwicth=1;
+  var collisionX = gameobjects[1].x - gameobjects[0].x;
+  var collisionY = gameobjects[1].y - gameobjects[0].y;
+
+ if(collisionX < 60 && collisionY <100)
+   {
+
+   
+   // gameobjects[1].health = gameobjects[1].health - 1;
+    console.log("GameEnded");
+    
+  console.log("collided");
   }
   else{
-    daySwicth=0;
+   
+    context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
+    context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
+
   }
+
 
 }
 
