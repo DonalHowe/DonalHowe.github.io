@@ -175,17 +175,17 @@ function animate() {
 
   //always draw the background
   
-  context.drawImage(background,0,0,400,400,0,0,890,500);
-  context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
-  context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
+ 
     
    if(killedPlayer===false)
   {
-    
+    context.drawImage(background,0,0,400,400,0,0,890,500);
+    context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
+    context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
   }
   else
   {
-    //context.drawImage(gameOverBackground,0,0,400,400,0,0,1080,1000);
+    context.drawImage(gameOverBackground,0,0,400,400,0,0,1080,1000);
   }
  
  
