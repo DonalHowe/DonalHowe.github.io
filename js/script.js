@@ -10,6 +10,10 @@ var background=new Image();
 background.src="img/Background.jpg";
 var sprite = new Image();
 sprite.src = "img/lab6sprite.png"; // Frames 1 to 6
+
+
+
+
 function GameObject(name, img, health,Scale) {
   this.name = name;
   this.img = img;
@@ -21,6 +25,8 @@ function GameObject(name, img, health,Scale) {
 function GamerInput(input) {
   this.action = input;
 }
+
+
 
 // Default GamerInput is set to None
 var gamerInput = new GamerInput("None"); //No Input
@@ -147,17 +153,13 @@ function update() {
 }
 
 
+
 var x = 0, y = 1300;
 // Total Frames
 var frames = 6;
 
 // Current Frame
 var currentFrame = 0;
-
-// Sprite
-
-
-
 // X axis to Draw from
 var sprite_x = 0;
 
@@ -195,6 +197,17 @@ function animate() {
   gameobjects[1].x = 600;
   gameobjects[1].y = 10;
   }
+}
+
+function onPageLoad() {
+  var url=document.location.href;
+  var result= url.split("=");
+
+  var href = window.location.href;
+  alert(result[1]);
+  alert(result[2]);
+  alert(result[3]);
+     
 }
 
 function buttonOnClick() {
@@ -303,6 +316,7 @@ function moveThroughWalls(){
 
 function gameloop() {
   update();
+ // onPageLoad();
   drawHealthbar();
 
   animate();
