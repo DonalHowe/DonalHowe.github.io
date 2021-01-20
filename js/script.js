@@ -207,7 +207,7 @@ function onPageLoad() {
   var result= url.split("=");
 
   var href = window.location.href;
- // alert(result[1]);
+   alert(result[1]);
   //gamertag=result[2];
   var hellomsg="Hello ";
   var  entermsg=hellomsg.concat(result[2]);
