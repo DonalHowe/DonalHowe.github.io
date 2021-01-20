@@ -7,7 +7,7 @@ var gameOverBackground=new Image();
 var killedPlayer =false;
 gameOverBackground.src="./img/gameOver.jpg";
 var background=new Image();
-background.src="./img/background.jpg";
+background.src="./img/Background.jpg";
 var sprite = new Image();
 sprite.src = "./img/lab6sprite.png"; // Frames 1 to 6
 function GameObject(name, img, health,Scale) {
