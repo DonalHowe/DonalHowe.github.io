@@ -199,16 +199,22 @@ function animate() {
   }
 }
 
+
+var url=document.location.href;
+var gamertag;
 function onPageLoad() {
-  var url=document.location.href;
+ 
   var result= url.split("=");
 
   var href = window.location.href;
-  alert(result[1]);
-  alert(result[2]);
-  alert(result[3]);
-     
+ // alert(result[1]);
+  gamertag=result[1];
+  var hellomsg="Hello";
+  var  entermsg=hellomsg.concat(gamertag);
+  alert(entermsg);
+  
 }
+
 
 function buttonOnClick() {
   // alert("Booooommmmmm!!!");
