@@ -3,9 +3,9 @@ var context = canvas.getContext('2d');
 var buttonD = document.getElementById("dButton")
 var npcsprite = new Image();
 npcsprite.src = "img/1to6.png"; // Frames 1 to 6
-//var gameOverBackground=new Image();
+var gameOverBackground=new Image();
 var killedPlayer =false;
-//gameOverBackground.src="img/gameOver.jpg";
+gameOverBackground.src="img/gameOver.jpg";
 var background=new Image();
 background.src="img/background.jpg";
 var sprite = new Image();
@@ -176,17 +176,16 @@ function animate() {
   //always draw the background
   
  
-    
-  // if(killedPlayer===false)
- // {
+   if(killedPlayer===false)
+  {
     context.drawImage(background,0,0,400,400,0,0,890,500);
     context.drawImage(sprite, (sprite.width/6 ) * currentFrame, 0, 100, 100, gameobjects[0].x, gameobjects[0].y, 90,90);
     context.drawImage(npcsprite, (npcsprite.width  /6) * currentFrame, 0, 100, 100, gameobjects[1].x, gameobjects[1].y, 90, 90);
- // }
- // else
-  //{
-   // context.drawImage(gameOverBackground,0,0,400,400,0,0,1080,1000);
- // }
+  }
+  else
+  {
+    context.drawImage(gameOverBackground,0,0,400,400,0,0,1080,1000);
+  }
  
  
 
@@ -246,7 +245,7 @@ function drawHealthbar() {
   var val = 10;
 
   // Draw the background
-  context.fillStyle = "#000000";
+  context.fillStyle = "#0000FF";
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillRect(0, 0, width, height);
 
