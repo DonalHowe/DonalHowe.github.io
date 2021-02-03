@@ -10,7 +10,7 @@ var background=new Image();
 background.src="img/Background.jpg";
 var sprite = new Image();
 sprite.src = "img/lab6sprite.png"; // Frames 1 to 6
-var score =0;
+
 
 
 
@@ -278,11 +278,12 @@ function onPageLoad() {
 
 
 function updateScore(){
+  var score=localStorage.getItem('score');
   if (isNaN(score)) {
     localStorage.setItem('score', 0);
       document.getElementById("SCORE").innerHTML = " [ " + score + " ] ";
   } else {
-      localStorage.setItem('score', parseInt(score));
+      localStorage.setItem('score', parseInt(score)+1);
      document.getElementById("SCORE").innerHTML = " [ " + score + " ] ";
   }
  
@@ -300,8 +301,8 @@ function collsions(){
    {
 
    // gameobjects[1].health = gameobjects[1].health - 1;
-   score+=1;
-   console.log(score);
+  
+   
    sceneState=1;
    killedPlayer=true;
     console.log("ouch");
