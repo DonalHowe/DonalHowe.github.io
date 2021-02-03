@@ -10,6 +10,7 @@ var background=new Image();
 background.src="img/Background.jpg";
 var sprite = new Image();
 sprite.src = "img/lab6sprite.png"; // Frames 1 to 6
+var score =0;
 
 
 
@@ -39,7 +40,8 @@ var sceneState=0;
 // Gameobjects is a collection of the Actors within the game
 
   var gameobjects = [player, new GameObject("NPC",npcsprite, 100,700,700)];
-
+  var startingPositionX=gameobjects[0].x;
+  var startingPositionY=gameobjects[0].y;
 
 
 // Process keyboard input event
@@ -207,14 +209,84 @@ function onPageLoad() {
   var result= url.split("=");
 
   var href = window.location.href;
-   alert(result[1]);
+   //alert(result[1]);
   //gamertag=result[2];
   var hellomsg="Hello ";
-  var  entermsg=hellomsg.concat(result[2]);
+  var  entermsg=hellomsg.concat(result[1]);
   alert(entermsg);
+
+  var gameObjects = {
+    'positionX': 1,
+    'positionY': 2,
+    'score': 3
+  };
+
+  // Game objects as JSON
+  localStorage.setItem('gameObjects', JSON.stringify(gameObjects));
+
+  // Retrieve Games object as from storage
+  var npcObjects = localStorage.getItem('gameObjects');
+
+  console.log('npcObjects: ', JSON.parse(npcObjects));
+
+  // Reading Level Information from a file
+  var readJSONFromURL = function (url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+
+    xhr.onload = function () {
+      var status = xhr.status;
+      if (status == 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status);
+      }
+    };
+
+    xhr.send();
+  };
+
+  readJSONFromURL('./data/level.json', function (err, data) {
+    if (err != null) {
+      console.error(err);
+    } else {
+      var text = data["postionX"];
+      console.log(text);
+      var text = data["positionY"];
+      console.log(text);
+      var text = data["score"];
+      console.log(text);
+    }
+  });
+
+  // Reading File from a Server
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var data = JSON.parse(this.responseText);
+      document.getElementById("NPC").innerHTML = data[0];
+    }
+  };
+  
+  xmlhttp.open("GET", "./data/level.json", true);
+  xmlhttp.send();
+
   
 }
 
+
+function updateScore(){
+  if (isNaN(score)) {
+    localStorage.setItem('score', 0);
+      document.getElementById("SCORE").innerHTML = " [ " + score + " ] ";
+  } else {
+      localStorage.setItem('score', parseInt(score));
+     document.getElementById("SCORE").innerHTML = " [ " + score + " ] ";
+  }
+ 
+}
 
 function buttonOnClick() {
   // alert("Booooommmmmm!!!");
@@ -228,6 +300,8 @@ function collsions(){
    {
 
    // gameobjects[1].health = gameobjects[1].health - 1;
+   score+=1;
+   console.log(score);
    sceneState=1;
    killedPlayer=true;
     console.log("ouch");
@@ -270,7 +344,7 @@ function drawHealthbar() {
 
   // Draw the fill
   context.fillStyle = "#00FF00";
-  var fillVal = Math.min(Math.max(val / max, 0), 1);
+  var fillVal = Math.min(Math.max(val / max, 10), 1);
   context.fillRect(0, 0, fillVal * width, height);
 }
 
@@ -319,12 +393,12 @@ function moveThroughWalls(){
   }
 
 }
-
+updateScore();
 function gameloop() {
   update();
  // onPageLoad();
   drawHealthbar();
-
+ 
   animate();
   collsions();
  

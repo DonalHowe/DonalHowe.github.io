@@ -25,6 +25,12 @@
         Oops! looks like your browser does not support canvas tag
     </canvas>
       <tbody>
+        <tr>
+           <td>&nbsp;</td>
+        <h1 id="SCORE" ></h1>
+        <td><button onclick="updateScore()" id="scoreButton">POWER UP</button></td>
+        <td>&nbsp;</td>
+        </tr>
           <tr>
               <td>&nbsp;</td>
               <td><button onclick="moveUp()" class="button yellow round" id="wButton">W</button></td>
@@ -40,6 +46,9 @@
               <td><button onclick="moveRight()" class="button green round" id="sButton">S</button></td>
               <td>&nbsp;</td>
           </tr>
+          <tr>
+           
+        </tr>
       </tbody>
       <tr>
         <td>&nbsp;</td>
@@ -47,6 +56,9 @@
         <td>&nbsp;</td>
       </tr>
       <tr>
+       
+      
+        
         <td colspan="3" align="center">
           <div class="custom-select" style="width:200px;">
             <select id="equipment" onchange="weaponSelection()">
@@ -61,6 +73,7 @@
             <span class="toggle"></span>
           </label>
         </td>
+
       </tr>
     </tbody>
   </table>

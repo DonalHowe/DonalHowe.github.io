@@ -17,7 +17,27 @@
   box-shadow: 0 5px #3D3D3D;
   transform: translateY(5px);
 }
+#resetButton{
+  background-color: royalblue;
+  color: #FF0000;
+  border: 2px solid rgb(8, 7, 7);
+  border-radius: 20px;
+}
+#scoreButton{
+  
+  color: #FF0000;
+  border: 2px solid rgb(8, 7, 7);
+  border-radius: 20px;
+ 
+}
 
+
+#transferButton{
+  background-color: seagreen;
+  color: #ff6600;
+  border: 5px solid rgb(4, 8, 5);
+  border-radius: 10px;
+}
 .red {
   color: #FF0000;
 }
@@ -105,7 +125,9 @@
 input:checked+.toggle {
   background-color: #FF0000;
 }
-
+body{
+  background-color: #00ff2a;
+}
 input:checked+.toggle:before {
   /* WebKit */
   -webkit-transform: translateX(26px);
