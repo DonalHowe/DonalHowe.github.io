@@ -227,7 +227,7 @@ function onPageLoad() {
   // Retrieve Games object as from storage
   var npcObjects = localStorage.getItem('gameObjects');
 
-  console.log('npcObjects: ', JSON.parse(npcObjects));
+  console.log('PLAYER_OBJECTS: ', JSON.parse(npcObjects));
 
   // Reading Level Information from a file
   var readJSONFromURL = function (url, callback) {
@@ -251,7 +251,7 @@ function onPageLoad() {
     if (err != null) {
       console.error(err);
     } else {
-      var text = data["postionX"];
+      var text = data["positionX"];
       console.log(text);
       var text = data["positionY"];
       console.log(text);
