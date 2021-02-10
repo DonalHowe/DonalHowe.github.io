@@ -47,9 +47,28 @@
               <td><button onclick="moveRight()" class="button green round" id="sButton">S</button></td>
               <td>&nbsp;</td>
           </tr>
-          <tr>
-           
-        </tr>
+          
+            <tr>
+
+
+
+              <td colspan="3" align="center">
+                <div class="custom-select" style="width:200px;">
+                  <select id="equipment" onchange="weaponSelection()">
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" align="center">
+                <label class="switch">
+                  <input id="active" onclick="weaponSelection()" type="checkbox">
+                  <span class="toggle"></span>
+                </label>
+              </td>
+      
+            </tr>
+        
       </tbody>
       <tr>
         <td>&nbsp;</td>
