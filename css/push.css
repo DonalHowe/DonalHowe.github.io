@@ -25,7 +25,7 @@
 }
 #scoreButton{
   
-  color: #FF0000;
+  color: black;
   border: 2px solid rgb(8, 7, 7);
   border-radius: 20px;
  
@@ -126,7 +126,7 @@ input:checked+.toggle {
   background-color: #FF0000;
 }
 body{
-  background-color: #00ff2a;
+  background-color:blanchedalmond;
 }
 input:checked+.toggle:before {
   /* WebKit */
