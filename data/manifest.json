@@ -1,5 +1,6 @@
 {
- "name": "BEST GAME EVER",
+ "name": "Donal Howe (pwa apllication)",
+ "short_name": "Donal Howe PWA",
  
  "icons": [
   {
@@ -55,11 +56,13 @@
    }
   
  ],
+
  "theme_color": "#ffffff",
  "background_color": "#000000",
  "display": "minimal-ui",
  "orientation": "portrait",
- "scope": "/"
+ "scope": "/",
+ "start_url": "/index.html"
  
 
 }
