@@ -58,7 +58,7 @@
  "theme_color": "#ffffff",
  "background_color": "#000000",
  "display": "minimal-ui",
- "orientation": "landscape",
+ "orientation": "portrait",
  "scope": "/"
  
 
