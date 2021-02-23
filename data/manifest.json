@@ -44,12 +44,20 @@
    "density": "4.0",
    "purpose": "any maskable"
    
-  }
+  },
+  {
+    "src": "\/android-icon-512x512.png",
+    "sizes": "512x512",
+    "type": "image\/png",
+    "density": "4.0",
+    "purpose": "any maskable"
+    
+   }
   
  ],
  "theme_color": "#ffffff",
  "background_color": "#000000",
-  "display": "minimal-ui",
+ "display": "minimal-ui",
  "orientation": "landscape",
  "scope": "/",
  "start_url": "/index.html"
