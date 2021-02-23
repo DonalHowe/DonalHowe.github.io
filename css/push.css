@@ -102,8 +102,8 @@
 .toggle:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: 48px;
+  width: 48px;
   left: 5px;
   bottom: 5px;
   background-color: #000000;
