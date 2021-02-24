@@ -266,7 +266,7 @@ function onPageLoad() {
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var data = JSON.parse(this.responseText);
-      document.getElementById("NPC").innerHTML = data[1];
+      document.getElementById("NPC").innerHTML = data[0];
     }
   };
   
