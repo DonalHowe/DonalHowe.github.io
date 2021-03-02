@@ -1,7 +1,7 @@
 var cacheName ='DonalHowe-Pwa'
 var filesToCache=[
     '/',
-    'index.html',
+    '/index.html',
     '/css/push.css',
     'js/script.js'
 ];
