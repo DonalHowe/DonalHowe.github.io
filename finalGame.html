@@ -1,0 +1,106 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>pwaSoon</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="a project game for fun ">
+
+  <link rel="stylesheet" href="./css/push.css">
+
+  <link rel="apple-touch-icon" href="img/icons/apple-icon-152x152.png">
+
+  <meta name="theme-color" content="white" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="DonalHowe PWA (Progressive Web Application)">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-status-bar-style" content="black">
+  <meta name="mobile-web-app-title" content="Donal Howe PWA (Progressive Web Application)">
+
+  <meta name="msapplication-TileImage" content=".img/icons/ms-icon-144x144">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="theme-color" content="#317EFB"/>
+
+<link rel="apple-touch-icon" sizes="57x57" href="./img/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="./img/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="./img/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="./img/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="./img/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./img/icons/apple-icon-128x128.png">
+<link rel="apple-touch-icon" sizes="144x144" href="./img/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./img/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./img/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="./img/icons/android-icon-192x192.png">
+
+<link rel="icon" type="image/png" sizes="32x32" href="./img/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="./img/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./img/icons/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="512x512"  href="./img/icons/ms-icon-512x512.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+  <link rel="shortcut icon" href="./img/icons/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="./data/manifest.json">
+  <link rel="icon" href="./img/icons/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body onload="onPageLoad()">
+  
+  <h1 id="HUD" onload="weaponSelection()"></h1>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan="3">
+        </td>
+      </tr>
+      <canvas tabindex="0" id="game" width="300" height="370" style="border: rgb(224, 3, 3) 8px solid;">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+      <tbody>
+        <tr>
+           <td>&nbsp;</td>
+        <h1 id="SCORE" ></h1>
+        <td><button onclick="updateScore()" id="scoreButton">POWER UP</button></td>
+        <td>&nbsp;</td>
+        </tr>
+          <tr>
+              <td>&nbsp;</td>
+              <td><button onclick="moveUp()" class="button yellow round" id="wButton">W</button></td>
+              <td>&nbsp;</td>
+          </tr>
+          <tr>
+              <td><button onclick="moveLeft()" class="button blue round" id="aButton">A</button></td>
+              <td>&nbsp;</td>
+              <td><button onclick="moveDown()" class="button red round" id="dButton">D</button></td>
+          </tr>
+          <tr>
+              <td>&nbsp;</td>
+              <td><button onclick="moveRight()" class="button green round" id="sButton">S</button></td>
+              <td>&nbsp;</td>
+          </tr>
+          
+           
+           
+        
+      </tbody>
+     
+      
+
+    </tbody>
+  </table>
+ 
+</body>
+<script src="./js/game.js"></script>
+<script src="./js/register.js"></script>
+
+
+
+</html>
