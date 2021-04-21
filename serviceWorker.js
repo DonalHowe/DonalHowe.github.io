@@ -3,7 +3,7 @@ var filesToCache=[
     '/',
     '/index.html',
     '/css/push.css',
-    'js/script.js'
+    'js/game.js'
 ];
 
 self.addEventListener('install',function(e)
